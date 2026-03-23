@@ -1,0 +1,1115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Pear Tree | Fresh Homemade Food & Speciality Coffee in Coleraine</title>
+    <meta name="description" content="The Pear Tree — Coleraine's favourite cafe for homemade brunch, legendary pancakes, speciality coffee & fresh bakes. 4.6★ rated. Gluten-free friendly. Delivery available across the North Coast.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700;800&family=Open+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        /* ========== RESET & BASE ========== */
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: #2c2c2c;
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; display: block; }
+        a { text-decoration: none; color: inherit; }
+
+        /* ========== TYPOGRAPHY ========== */
+        h1, h2, h3, h4 { font-family: 'Playfair Display', serif; line-height: 1.2; }
+        .eyebrow {
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.85rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            color: #6B8E4E;
+            margin-bottom: 0.75rem;
+        }
+        .section-heading {
+            font-size: clamp(1.8rem, 4vw, 2.6rem);
+            margin-bottom: 1rem;
+            color: #2c2c2c;
+        }
+        .section-sub {
+            font-size: 1.05rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto 2.5rem;
+        }
+
+        /* ========== LAYOUT ========== */
+        .container { max-width: 1140px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 80px 0; }
+        .text-center { text-align: center; }
+
+        /* ========== BUTTONS ========== */
+        .btn {
+            display: inline-block;
+            padding: 16px 36px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            border: none;
+        }
+        .btn-primary {
+            background: #6B8E4E;
+            color: #fff;
+        }
+        .btn-primary:hover { background: #5a7a40; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(107,142,78,0.3); }
+        .btn-secondary {
+            background: transparent;
+            color: #fff;
+            border: 2px solid #fff;
+        }
+        .btn-secondary:hover { background: rgba(255,255,255,0.15); }
+        .btn-dark {
+            background: #3d5a2a;
+            color: #fff;
+        }
+        .btn-dark:hover { background: #2e4520; transform: translateY(-2px); box-shadow: 0 6px 20px rgba(61,90,42,0.3); }
+        .btn-outline {
+            background: transparent;
+            color: #6B8E4E;
+            border: 2px solid #6B8E4E;
+        }
+        .btn-outline:hover { background: #6B8E4E; color: #fff; }
+
+        /* ========== HEADER / NAV ========== */
+        .header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 16px 0;
+            transition: all 0.3s ease;
+            background: transparent;
+        }
+        .header.scrolled {
+            background: rgba(255,255,255,0.97);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08);
+            padding: 10px 0;
+        }
+        .header .container {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        .logo img { height: 44px; width: auto; }
+        .logo-text {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #fff;
+            transition: color 0.3s;
+        }
+        .header.scrolled .logo-text { color: #3d5a2a; }
+        .nav { display: flex; align-items: center; gap: 28px; }
+        .nav a {
+            font-size: 0.9rem;
+            font-weight: 600;
+            color: rgba(255,255,255,0.9);
+            transition: color 0.3s;
+        }
+        .header.scrolled .nav a { color: #555; }
+        .nav a:hover { color: #6B8E4E; }
+        .nav-cta {
+            background: #6B8E4E !important;
+            color: #fff !important;
+            padding: 10px 22px;
+            border-radius: 6px;
+            font-size: 0.85rem !important;
+        }
+        .nav-cta:hover { background: #5a7a40 !important; }
+        .mobile-toggle {
+            display: none;
+            flex-direction: column;
+            gap: 5px;
+            cursor: pointer;
+            z-index: 1001;
+        }
+        .mobile-toggle span {
+            width: 26px;
+            height: 2.5px;
+            background: #fff;
+            transition: all 0.3s;
+            border-radius: 2px;
+        }
+        .header.scrolled .mobile-toggle span { background: #3d5a2a; }
+
+        /* ========== HERO ========== */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            /* STOCK IMAGE: Replace with real photo of The Pear Tree interior or exterior */
+            background: linear-gradient(rgba(30,28,22,0.5), rgba(30,28,22,0.6)),
+                        url('https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=1400&q=60');
+            background-size: cover;
+            background-position: center;
+            color: #fff;
+        }
+        .hero-content { max-width: 680px; padding-top: 80px; }
+        .hero-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(255,255,255,0.15);
+            backdrop-filter: blur(8px);
+            padding: 8px 18px;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 24px;
+        }
+        .hero h1 {
+            font-size: clamp(2.4rem, 5.5vw, 3.6rem);
+            font-weight: 800;
+            margin-bottom: 20px;
+            line-height: 1.15;
+        }
+        .hero p {
+            font-size: 1.15rem;
+            line-height: 1.8;
+            opacity: 0.92;
+            margin-bottom: 32px;
+            max-width: 540px;
+        }
+        .hero-buttons { display: flex; gap: 16px; flex-wrap: wrap; }
+
+        /* ========== SOCIAL PROOF BAR ========== */
+        .proof-bar {
+            background: #fff;
+            padding: 28px 0;
+            border-bottom: 1px solid #eee;
+        }
+        .proof-bar .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 48px;
+            flex-wrap: wrap;
+        }
+        .proof-item {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #444;
+        }
+        .proof-item .stars { color: #F4B942; font-size: 1.1rem; }
+
+        /* ========== ABOUT / INTRO ========== */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .about-img {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 440px;
+            /* STOCK IMAGE: Replace with real photo of The Pear Tree interior or owner */
+            background: url('https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?w=800&q=60');
+            background-size: cover;
+            background-position: center;
+        }
+        .about-text h2 { margin-bottom: 20px; }
+        .about-text p { margin-bottom: 16px; color: #555; }
+        .about-highlights {
+            display: flex;
+            gap: 24px;
+            margin-top: 28px;
+        }
+        .highlight-item {
+            text-align: center;
+            flex: 1;
+        }
+        .highlight-num {
+            font-family: 'Playfair Display', serif;
+            font-size: 2rem;
+            font-weight: 800;
+            color: #6B8E4E;
+        }
+        .highlight-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #888;
+            margin-top: 4px;
+        }
+
+        /* ========== MENU HIGHLIGHTS ========== */
+        .menu-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .menu-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+        .menu-card:hover { transform: translateY(-6px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+        .menu-card-img {
+            height: 200px;
+            background-size: cover;
+            background-position: center;
+        }
+        .menu-card-body {
+            padding: 24px;
+        }
+        .menu-card-body h3 {
+            font-size: 1.2rem;
+            margin-bottom: 8px;
+        }
+        .menu-card-body p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ========== WHY CHOOSE US ========== */
+        .why-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .why-card {
+            background: #fff;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            transition: transform 0.3s;
+        }
+        .why-card:hover { transform: translateY(-4px); }
+        .why-card-img {
+            height: 180px;
+            background-size: cover;
+            background-position: center;
+        }
+        .why-card-body {
+            padding: 24px;
+        }
+        .why-card-body h3 {
+            font-size: 1.1rem;
+            margin-bottom: 8px;
+        }
+        .why-card-body p {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* ========== OWNER / PHOTO PLACEHOLDER ========== */
+        .owner-section {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+        .owner-img {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 480px;
+            /* STOCK IMAGE: Replace with real photo of The Pear Tree owner or team */
+            background: url('https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?w=800&q=60');
+            background-size: cover;
+            background-position: center;
+        }
+        .owner-text h2 { margin-bottom: 16px; }
+        .owner-text p { color: #555; margin-bottom: 14px; }
+
+        /* ========== REVIEWS ========== */
+        .reviews-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+        }
+        .review-card {
+            background: #fff;
+            border-radius: 12px;
+            padding: 32px 28px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            position: relative;
+        }
+        .review-card .stars {
+            color: #F4B942;
+            font-size: 1rem;
+            margin-bottom: 14px;
+        }
+        .review-card p {
+            font-size: 0.95rem;
+            color: #555;
+            line-height: 1.7;
+            margin-bottom: 18px;
+            font-style: italic;
+        }
+        .review-author {
+            font-weight: 700;
+            font-size: 0.9rem;
+            color: #2c2c2c;
+        }
+
+        /* ========== DELIVERY BANNER ========== */
+        .delivery-banner {
+            background: #3d5a2a;
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+        .delivery-banner h2 {
+            color: #fff;
+            margin-bottom: 14px;
+        }
+        .delivery-banner p {
+            font-size: 1.05rem;
+            opacity: 0.9;
+            margin-bottom: 28px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========== HOURS & LOCATION ========== */
+        .hours-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .hours-table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        .hours-table tr { border-bottom: 1px solid #e8e8e8; }
+        .hours-table td {
+            padding: 14px 0;
+            font-size: 0.95rem;
+        }
+        .hours-table td:first-child { font-weight: 600; color: #2c2c2c; }
+        .hours-table td:last-child { text-align: right; color: #555; }
+        .hours-note {
+            margin-top: 16px;
+            padding: 14px 18px;
+            background: #fef9f0;
+            border-left: 3px solid #F4B942;
+            border-radius: 4px;
+            font-size: 0.9rem;
+            color: #666;
+        }
+        .map-embed {
+            border-radius: 12px;
+            overflow: hidden;
+            height: 400px;
+        }
+        .map-embed iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        /* ========== CONTACT FORM ========== */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: start;
+        }
+        .contact-info h3 { margin-bottom: 16px; font-size: 1.3rem; }
+        .contact-info p { color: #555; margin-bottom: 24px; }
+        .contact-detail {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+            margin-bottom: 18px;
+            font-size: 0.95rem;
+            color: #444;
+        }
+        .contact-detail-icon {
+            width: 44px;
+            height: 44px;
+            background: #e8f0e0;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.1rem;
+            flex-shrink: 0;
+        }
+        .form-group { margin-bottom: 18px; }
+        .form-group label {
+            display: block;
+            font-size: 0.85rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+            color: #444;
+        }
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 14px 16px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 0.95rem;
+            transition: border-color 0.3s;
+            background: #fff;
+        }
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: #6B8E4E;
+        }
+        .form-group textarea { resize: vertical; min-height: 120px; }
+        .form-submit {
+            width: 100%;
+            padding: 16px;
+            background: #6B8E4E;
+            color: #fff;
+            font-family: 'Open Sans', sans-serif;
+            font-size: 1rem;
+            font-weight: 700;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: all 0.3s;
+        }
+        .form-submit:hover { background: #5a7a40; }
+        .form-submit.success {
+            background: #25D366;
+            pointer-events: none;
+        }
+        .form-success-msg {
+            text-align: center;
+            padding: 40px 24px;
+        }
+        .form-success-msg h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: #25D366;
+        }
+        .form-success-msg p { color: #555; margin-bottom: 20px; }
+
+        /* ========== URGENCY BANNER ========== */
+        .urgency-banner {
+            background: linear-gradient(135deg, #6B8E4E, #4a7035);
+            color: #fff;
+            padding: 50px 0;
+            text-align: center;
+        }
+        .urgency-banner h2 {
+            color: #fff;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            margin-bottom: 14px;
+        }
+        .urgency-banner p {
+            font-size: 1.05rem;
+            opacity: 0.92;
+            margin-bottom: 28px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* ========== FOOTER ========== */
+        .footer {
+            background: #1a1a1e;
+            color: rgba(255,255,255,0.7);
+            padding: 50px 0 30px;
+        }
+        .footer-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+        .footer h4 {
+            color: #fff;
+            font-size: 1.1rem;
+            margin-bottom: 16px;
+        }
+        .footer p { font-size: 0.9rem; line-height: 1.8; }
+        .footer a { color: rgba(255,255,255,0.7); transition: color 0.3s; }
+        .footer a:hover { color: #6B8E4E; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 10px; }
+        .footer-links a { font-size: 0.9rem; }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1);
+            padding-top: 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.8rem;
+            flex-wrap: wrap;
+            gap: 12px;
+        }
+        .footer-social { display: flex; gap: 16px; }
+        .footer-social a { font-size: 1.2rem; }
+
+        /* ========== SCROLL ANIMATIONS ========== */
+        .fade-up {
+            opacity: 1;
+            transform: translateY(0);
+            transition: opacity 0.7s ease, transform 0.7s ease;
+        }
+        .fade-up.will-animate {
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* ========== MOBILE ========== */
+        @media (max-width: 768px) {
+            .nav {
+                display: none;
+                position: fixed;
+                top: 0;
+                left: 0;
+                right: 0;
+                bottom: 0;
+                background: rgba(255,255,255,0.98);
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                gap: 24px;
+                z-index: 999;
+            }
+            .nav.open { display: flex; }
+            .nav.open a { color: #2c2c2c; font-size: 1.1rem; }
+            .mobile-toggle { display: flex; }
+            .about-grid,
+            .owner-section,
+            .hours-grid,
+            .contact-grid { grid-template-columns: 1fr; }
+            .menu-grid,
+            .why-grid,
+            .reviews-grid { grid-template-columns: 1fr; }
+            .about-img,
+            .owner-img { height: 300px; }
+            .hero-content { padding-top: 120px; }
+            .footer-grid { grid-template-columns: 1fr; }
+            .proof-bar .container { gap: 24px; }
+            .about-highlights { gap: 12px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- ========== HEADER ========== -->
+    <header class="header" id="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="The Pear Tree Logo">
+                <span class="logo-text">The Pear Tree</span>
+            </a>
+            <nav class="nav" id="nav">
+                <a href="#menu">Menu</a>
+                <a href="#about">About</a>
+                <a href="#reviews">Reviews</a>
+                <a href="#hours">Visit Us</a>
+                <a href="#contact" class="nav-cta">Get In Touch</a>
+            </nav>
+            <div class="mobile-toggle" id="mobileToggle" aria-label="Toggle menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div class="hero-badge">⭐ 4.6 Stars — 286 Google Reviews</div>
+                <h1>Coleraine's Home of Fresh Homemade Brunch & Speciality Coffee</h1>
+                <p>From legendary pancakes with maple syrup to our famous Eggs Benedict on sourdough — everything is made fresh, from scratch, daily. Gluten-free? We've got you covered.</p>
+                <div class="hero-buttons">
+                    <a href="#menu" class="btn btn-primary">See Our Menu</a>
+                    <a href="tel:+442870342864" class="btn btn-secondary">📞 Call to Order</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== SOCIAL PROOF BAR ========== -->
+    <div class="proof-bar">
+        <div class="container">
+            <div class="proof-item">
+                <span class="stars">★★★★★</span>
+                <span>4.6 on Google (286 reviews)</span>
+            </div>
+            <div class="proof-item">
+                <span class="stars">★★★★★</span>
+                <span>4.5 on TripAdvisor</span>
+            </div>
+            <div class="proof-item">
+                <span>🚚</span>
+                <span>Free Delivery Across the North Coast</span>
+            </div>
+            <div class="proof-item">
+                <span>🌾</span>
+                <span>Coeliac-Friendly Menu</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- ========== MENU HIGHLIGHTS ========== -->
+    <section class="section" id="menu" style="background: #f4f2ef;">
+        <div class="container text-center">
+            <p class="eyebrow fade-up">Our Menu</p>
+            <h2 class="section-heading fade-up">The Food Everyone's Talking About</h2>
+            <p class="section-sub fade-up">Every dish is made fresh in our kitchen using quality ingredients. No shortcuts, no frozen nonsense — just proper homemade food the way it should be.</p>
+            <div class="menu-grid">
+                <div class="menu-card fade-up">
+                    <!-- STOCK IMAGE: Replace with real photo of Pear Tree pancakes -->
+                    <div class="menu-card-img" style="background-image: url('https://images.unsplash.com/photo-1567620905732-2d1ec7ab7445?w=600&q=60');"></div>
+                    <div class="menu-card-body">
+                        <h3>Legendary Pancakes</h3>
+                        <p>Fluffy pancakes stacked with smoked back bacon and drizzled in real maple syrup. Customers say they're "the best in Coleraine" — and we agree.</p>
+                    </div>
+                </div>
+                <div class="menu-card fade-up">
+                    <!-- STOCK IMAGE: Replace with real photo of Eggs Benedict -->
+                    <div class="menu-card-img" style="background-image: url('https://images.unsplash.com/photo-1608039829572-9b00159ba2b0?w=600&q=60');"></div>
+                    <div class="menu-card-body">
+                        <h3>Eggs Benedict on Sourdough</h3>
+                        <p>Perfectly poached eggs with rich hollandaise on thick-cut sourdough toast. Our most Instagrammed dish for a reason.</p>
+                    </div>
+                </div>
+                <div class="menu-card fade-up">
+                    <!-- STOCK IMAGE: Replace with real photo of French Toast -->
+                    <div class="menu-card-img" style="background-image: url('https://images.unsplash.com/photo-1484723091739-30a097e8f929?w=600&q=60');"></div>
+                    <div class="menu-card-body">
+                        <h3>Cinnamon French Toast</h3>
+                        <p>Thick slices of brioche dipped in cinnamon batter, golden-fried and served with fresh berries and cream. Pure indulgence.</p>
+                    </div>
+                </div>
+                <div class="menu-card fade-up">
+                    <!-- STOCK IMAGE: Replace with real photo of soup -->
+                    <div class="menu-card-img" style="background-image: url('https://images.unsplash.com/photo-1547592166-23ac45744acd?w=600&q=60');"></div>
+                    <div class="menu-card-body">
+                        <h3>Homemade Soups</h3>
+                        <p>A different soup every day, made fresh that morning and served with warm sourdough bread. Perfect comfort food.</p>
+                    </div>
+                </div>
+                <div class="menu-card fade-up">
+                    <!-- STOCK IMAGE: Replace with real photo of speciality coffee -->
+                    <div class="menu-card-img" style="background-image: url('https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=600&q=60');"></div>
+                    <div class="menu-card-body">
+                        <h3>Speciality Coffee</h3>
+                        <p>Expertly crafted Americanos, silky lattes, and oat milk options. Because great food deserves great coffee alongside it.</p>
+                    </div>
+                </div>
+                <div class="menu-card fade-up">
+                    <!-- STOCK IMAGE: Replace with real photo of scones/bakes -->
+                    <div class="menu-card-img" style="background-image: url('https://images.unsplash.com/photo-1558961363-fa8fdf82db35?w=600&q=60');"></div>
+                    <div class="menu-card-body">
+                        <h3>Fresh Bakes & Scones</h3>
+                        <p>Homemade fruit scones, cherry scones, and fresh pastries baked in-house every morning. Grab one with your coffee — you deserve it.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== ABOUT ========== -->
+    <section class="section" id="about" style="background: #fff;">
+        <div class="container">
+            <div class="about-grid">
+                <!-- STOCK IMAGE: Replace with real photo of The Pear Tree interior -->
+                <div class="about-img fade-up"></div>
+                <div class="about-text fade-up">
+                    <p class="eyebrow">Our Story</p>
+                    <h2 class="section-heading">More Than a Cafe — It's Where Coleraine Comes Together</h2>
+                    <p>The Pear Tree isn't just a place to eat — it's where friends catch up over pancakes, where families enjoy a lazy Saturday brunch, and where visitors discover the best food on the North Coast.</p>
+                    <p>Everything on our menu is made from scratch, right here in our kitchen. We're passionate about quality ingredients, generous portions, and making sure every single person who walks through our door leaves happier than when they arrived.</p>
+                    <p>And if you have dietary needs? We take gluten-free seriously. Our staff are trained on cross-contamination and can guide you through every option with confidence.</p>
+                    <div class="about-highlights">
+                        <div class="highlight-item">
+                            <div class="highlight-num">286+</div>
+                            <div class="highlight-label">Google Reviews</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-num">4.6</div>
+                            <div class="highlight-label">Star Rating</div>
+                        </div>
+                        <div class="highlight-item">
+                            <div class="highlight-num">100%</div>
+                            <div class="highlight-label">Homemade</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== WHY CHOOSE US ========== -->
+    <section class="section" style="background: #1a1a1e; color: #fff;">
+        <div class="container text-center">
+            <p class="eyebrow fade-up" style="color: #9DC47A;">Why People Love The Pear Tree</p>
+            <h2 class="section-heading fade-up" style="color: #fff;">Not Your Average Cafe</h2>
+            <p class="section-sub fade-up" style="color: rgba(255,255,255,0.7);">There are plenty of places to grab a coffee in Coleraine. Here's why people keep coming back to us.</p>
+            <div class="why-grid">
+                <div class="why-card fade-up">
+                    <!-- STOCK IMAGE: Replace with real photo of fresh cooking -->
+                    <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1556910103-1c02745aae4d?w=600&q=60');"></div>
+                    <div class="why-card-body">
+                        <h3>Everything Made Fresh Daily</h3>
+                        <p>Our soups, scones, and meals are prepared from scratch every single morning. No microwaved shortcuts, no frozen pre-packs.</p>
+                    </div>
+                </div>
+                <div class="why-card fade-up">
+                    <!-- STOCK IMAGE: Replace with real photo of gluten-free food -->
+                    <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1490645935967-10de6ba17061?w=600&q=60');"></div>
+                    <div class="why-card-body">
+                        <h3>Proper Gluten-Free Options</h3>
+                        <p>Not just a token dish — we offer a full range of GF options with staff trained in cross-contamination. Coeliac customers rave about us.</p>
+                    </div>
+                </div>
+                <div class="why-card fade-up">
+                    <!-- STOCK IMAGE: Replace with real photo of cosy cafe atmosphere -->
+                    <div class="why-card-img" style="background-image: url('https://images.unsplash.com/photo-1521017432531-fbd92d768814?w=600&q=60');"></div>
+                    <div class="why-card-body">
+                        <h3>That Continental Atmosphere</h3>
+                        <p>Rustic decor, upstairs window seats, and a relaxed vibe that customers describe as "almost European." It just feels right.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== OWNER / TEAM PHOTO ========== -->
+    <section class="section" style="background: #f4f2ef;">
+        <div class="container">
+            <div class="owner-section">
+                <div class="owner-text fade-up">
+                    <p class="eyebrow">The People Behind the Pear Tree</p>
+                    <h2 class="section-heading">Passionate About Real Food & Warm Hospitality</h2>
+                    <p>We started The Pear Tree because we believed Coleraine deserved a place where the food is always fresh, the coffee is always good, and the welcome is always warm.</p>
+                    <p>Our team takes pride in every plate that leaves the kitchen. We know our regulars by name, and we treat first-timers like they've been coming for years.</p>
+                    <p>We've recently expanded with <strong>The Orchard</strong> on Church Street — offering hot meals, traditional favourites, and local specialities. Because one place wasn't enough to share the love.</p>
+                    <div style="margin-top: 28px;">
+                        <a href="#contact" class="btn btn-primary">Get In Touch</a>
+                    </div>
+                </div>
+                <!-- STOCK IMAGE: Replace with real photo of The Pear Tree owner/team -->
+                <div class="owner-img fade-up"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== REVIEWS ========== -->
+    <section class="section" id="reviews" style="background: #fff;">
+        <div class="container text-center">
+            <p class="eyebrow fade-up">Real Reviews</p>
+            <h2 class="section-heading fade-up">Don't Take Our Word For It</h2>
+            <p class="section-sub fade-up">Here's what real customers are saying about The Pear Tree on Google, TripAdvisor, and beyond.</p>
+            <div class="reviews-grid">
+                <div class="review-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p>"Very tasty, freshly made food. Staff were very friendly and the atmosphere was very relaxed."</p>
+                    <div class="review-author">— Peter Wilson</div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p>"Great little cafe in the heart of Coleraine. Good selection of tasty food, and a pleasant and almost continental style atmosphere."</p>
+                    <div class="review-author">— Brian Banks</div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p>"Had the Eggs Benedict and cinnamon French Toast, was delicious! Really nice place with a great atmosphere."</p>
+                    <div class="review-author">— Eamon Byrne</div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p>"These were the best pancakes with bacon I have ever had. The balance was perfection, with quality bacon, tasty pancakes and a decent pot full of maple syrup."</p>
+                    <div class="review-author">— P B</div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p>"As a coeliac, I was amazed at the variety of gluten-free options. The staff were incredibly knowledgeable about cross-contamination. Lovely place for lunch!"</p>
+                    <div class="review-author">— laurajane83</div>
+                </div>
+                <div class="review-card fade-up">
+                    <div class="stars">★★★★★</div>
+                    <p>"Excellent atmosphere, fresh ingredients, quick service, and delicious pancakes with bacon and syrup. Can't fault it."</p>
+                    <div class="review-author">— James McClelland</div>
+                </div>
+            </div>
+            <div style="margin-top: 36px;" class="fade-up">
+                <a href="https://www.google.com/maps/place/Pear+Tree/@55.1327,-6.6734,17z/" target="_blank" class="btn btn-outline">See All Reviews on Google →</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== DELIVERY BANNER ========== -->
+    <div class="delivery-banner fade-up">
+        <div class="container">
+            <p class="eyebrow" style="color: #9DC47A;">Delivery Available</p>
+            <h2>Can't Make It In? We'll Come to You</h2>
+            <p>Free delivery to Coleraine, Portrush, Portstewart, Castlerock, Ballymoney & Bushmills. Minimum order £15.</p>
+            <a href="tel:+442870342864" class="btn btn-primary" style="background: #fff; color: #3d5a2a;">📞 Call to Order: 028 7034 2864</a>
+        </div>
+    </div>
+
+    <!-- ========== HOURS & LOCATION ========== -->
+    <section class="section" id="hours" style="background: #fff;">
+        <div class="container">
+            <div class="text-center" style="margin-bottom: 48px;">
+                <p class="eyebrow fade-up">Visit Us</p>
+                <h2 class="section-heading fade-up">Come Say Hello</h2>
+                <p class="section-sub fade-up">We're right in the heart of Coleraine on Kingsgate Street. Pop in for brunch, grab a coffee, or order ahead for collection.</p>
+            </div>
+            <div class="hours-grid">
+                <div class="fade-up">
+                    <h3 style="font-family: 'Playfair Display', serif; font-size: 1.4rem; margin-bottom: 20px;">Opening Hours</h3>
+                    <table class="hours-table">
+                        <tr><td>Monday</td><td>10:00 AM – 4:30 PM</td></tr>
+                        <tr><td>Tuesday</td><td>10:00 AM – 4:30 PM</td></tr>
+                        <tr><td>Wednesday</td><td>10:00 AM – 4:30 PM</td></tr>
+                        <tr><td>Thursday</td><td>10:00 AM – 4:30 PM</td></tr>
+                        <tr><td>Friday</td><td>10:00 AM – 4:30 PM</td></tr>
+                        <tr><td>Saturday</td><td>10:00 AM – 4:30 PM</td></tr>
+                        <tr><td>Sunday</td><td>11:00 AM – 4:00 PM</td></tr>
+                    </table>
+                    <div class="hours-note">
+                        ⚠️ <strong>Please note:</strong> Food is served until 3:30 PM daily. After 3:30 PM, drinks, scones & pastries only.
+                    </div>
+                    <div style="margin-top: 24px;">
+                        <p style="font-weight: 600; color: #2c2c2c; margin-bottom: 8px;">📍 32 Kingsgate Street, Coleraine, BT52 1LE</p>
+                        <p style="color: #555; font-size: 0.9rem;">📞 028 7034 2864</p>
+                    </div>
+                </div>
+                <div class="map-embed fade-up">
+                    <!-- Google Maps embed for The Pear Tree, 32 Kingsgate St, Coleraine -->
+                    <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2282.5!2d-6.6734!3d55.1327!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2s32+Kingsgate+St%2C+Coleraine+BT52+1LE!5e0!3m2!1sen!2suk!4v1" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== CONTACT FORM ========== -->
+    <section class="section" id="contact" style="background: #f4f2ef;">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info fade-up">
+                    <p class="eyebrow">Get In Touch</p>
+                    <h2 class="section-heading">Questions? Bookings? Just Want to Say Hi?</h2>
+                    <p>Whether you want to book a table for a group, ask about our gluten-free options, or arrange a delivery — drop us a message and we'll get back to you quickly.</p>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">📍</div>
+                        <div>
+                            <strong>Address</strong><br>
+                            32 Kingsgate Street, Coleraine, BT52 1LE
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">📞</div>
+                        <div>
+                            <strong>Phone</strong><br>
+                            <a href="tel:+442870342864">028 7034 2864</a>
+                        </div>
+                    </div>
+                    <div class="contact-detail">
+                        <div class="contact-detail-icon">📘</div>
+                        <div>
+                            <strong>Facebook</strong><br>
+                            <a href="https://www.facebook.com/peartreecoleraine/" target="_blank">@peartreecoleraine</a>
+                        </div>
+                    </div>
+                    <div style="margin-top: 28px; padding: 20px; background: #fff; border-radius: 10px; border-left: 4px solid #6B8E4E;">
+                        <p style="font-weight: 700; color: #2c2c2c; margin-bottom: 6px;">🌿 Also Visit: The Orchard</p>
+                        <p style="font-size: 0.9rem; color: #555;">Our new restaurant on Church Street, Coleraine — hot meals, traditional favourites & local specialities.</p>
+                    </div>
+                </div>
+                <div class="fade-up">
+                    <form id="contactForm">
+                        <!-- Web3Forms Access Key — replace with real key -->
+                        <input type="hidden" name="access_key" value="YOUR_WEB3FORMS_ACCESS_KEY">
+                        <input type="hidden" name="subject" value="New enquiry from The Pear Tree website">
+                        <input type="hidden" name="redirect" value="">
+                        <!-- Honeypot anti-spam -->
+                        <input type="text" name="botcheck" style="display: none;">
+                        <div style="display: none;">
+                            <input type="text" name="honeypot" tabindex="-1" autocomplete="off">
+                        </div>
+                        <div class="form-group">
+                            <label for="name">Your Name</label>
+                            <input type="text" id="name" name="name" required placeholder="e.g. Sarah McAllister">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email Address</label>
+                            <input type="email" id="email" name="email" required placeholder="you@example.com">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Phone Number (optional)</label>
+                            <input type="tel" id="phone" name="phone" placeholder="028 xxxx xxxx">
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">What's This About?</label>
+                            <select id="subject" name="enquiry_type">
+                                <option value="">Choose one...</option>
+                                <option value="General Enquiry">General Enquiry</option>
+                                <option value="Table Booking">Table Booking</option>
+                                <option value="Delivery Order">Delivery Order</option>
+                                <option value="Dietary Requirements">Dietary Requirements</option>
+                                <option value="Feedback">Feedback</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Your Message</label>
+                            <textarea id="message" name="message" required placeholder="Tell us what you need..."></textarea>
+                        </div>
+                        <button type="submit" class="form-submit" id="submitBtn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========== URGENCY BANNER ========== -->
+    <section class="urgency-banner fade-up">
+        <div class="container">
+            <h2>Life's Too Short for Bad Coffee & Boring Food</h2>
+            <p>The Pear Tree is open 7 days a week in the heart of Coleraine. Whether it's brunch with friends or a quick coffee and scone — your table is waiting.</p>
+            <a href="tel:+442870342864" class="btn" style="background: #fff; color: #3d5a2a; font-weight: 700;">Call Us Now: 028 7034 2864</a>
+        </div>
+    </section>
+
+    <!-- ========== FOOTER ========== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <h4>The Pear Tree</h4>
+                    <p>Fresh homemade food, speciality coffee, and a warm welcome — right in the heart of Coleraine. Everything made from scratch, every single day.</p>
+                    <p style="margin-top: 12px;">32 Kingsgate Street, Coleraine, BT52 1LE<br>📞 028 7034 2864</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#menu">Menu</a></li>
+                        <li><a href="#about">About Us</a></li>
+                        <li><a href="#reviews">Reviews</a></li>
+                        <li><a href="#hours">Opening Hours</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Opening Hours</h4>
+                    <p>Mon – Sat: 10:00 AM – 4:30 PM</p>
+                    <p>Sunday: 11:00 AM – 4:00 PM</p>
+                    <p style="margin-top: 12px; font-size: 0.85rem; opacity: 0.7;">Food served until 3:30 PM</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 The Pear Tree, Coleraine. All rights reserved.</span>
+                <span>Website by <a href="https://www.realfastwebsite.com" target="_blank" rel="noopener">www.realfastwebsite.com</a></span>
+                <div class="footer-social">
+                    <a href="https://www.facebook.com/peartreecoleraine/" target="_blank" aria-label="Facebook">📘</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        /* ========== MOBILE NAV ========== */
+        const toggle = document.getElementById('mobileToggle');
+        const nav = document.getElementById('nav');
+        toggle.addEventListener('click', () => {
+            nav.classList.toggle('open');
+        });
+        nav.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => nav.classList.remove('open'));
+        });
+
+        /* ========== HEADER SCROLL ========== */
+        const header = document.getElementById('header');
+        window.addEventListener('scroll', () => {
+            header.classList.toggle('scrolled', window.scrollY > 60);
+        });
+
+        /* ========== SCROLL ANIMATIONS (Progressive Enhancement) ========== */
+        if ('IntersectionObserver' in window) {
+            const faders = document.querySelectorAll('.fade-up');
+            faders.forEach(el => el.classList.add('will-animate'));
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15 });
+            faders.forEach(el => observer.observe(el));
+        }
+
+        /* ========== WEB3FORMS AJAX SUBMISSION ========== */
+        const form = document.getElementById('contactForm');
+        const submitBtn = document.getElementById('submitBtn');
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            submitBtn.textContent = 'Sending...';
+            submitBtn.disabled = true;
+            try {
+                const response = await fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(Object.fromEntries(new FormData(form)))
+                });
+                const data = await response.json();
+                if (data.success) {
+                    submitBtn.textContent = 'Sent!';
+                    submitBtn.classList.add('success');
+                    setTimeout(() => {
+                        form.innerHTML = `
+                            <div class="form-success-msg">
+                                <h3>Message Received! ✅</h3>
+                                <p>Thanks for getting in touch. We'll get back to you as soon as we can.</p>
+                                <p style="font-size: 0.9rem; color: #888;">Want a faster reply?</p>
+                                <a href="tel:+442870342864" class="btn btn-primary" style="margin-top: 12px;">📞 Call Us Direct</a>
+                            </div>
+                        `;
+                    }, 800);
+                } else {
+                    throw new Error('Submission failed');
+                }
+            } catch (err) {
+                submitBtn.textContent = 'Something went wrong — try again';
+                submitBtn.disabled = false;
+                submitBtn.classList.remove('success');
+            }
+        });
+    </script>
+</body>
+</html>
